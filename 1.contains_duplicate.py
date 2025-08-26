@@ -7,6 +7,5 @@ class Solution:
         for num in nums:
             if num in hash:
                 return True
-            else:
-                hash[num] = num
+            hash[num] = num
         return False
