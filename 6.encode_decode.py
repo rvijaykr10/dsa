@@ -4,24 +4,25 @@ from typing import List
 class Solution:
     def encode(self, strs: List[str]) -> str:
         """Encodes a list of strings to a single string."""
-        return "".join(f"{len(s)}#{s}" for s in strs)
+        res = []
+        for s in strs:
+            res.append(str(len(s)) + "#" + s)
+        return "".join(res)
 
     def decode(self, s: str) -> List[str]:
         """Decodes a single string to a list of strings."""
         res = []
         i = 0
-        n = len(s)
-
-        for _ in range(n):  # simulate iteration without while
-            if i >= n:
-                break
-            # find next "#"
-            j = s.find("#", i)
-            if j == -1:
-                break
+        while i < len(s):
+            # find the length prefix
+            j = i
+            while s[j] != "#":
+                j += 1
             length = int(s[i:j])
+            # move past '#'
             i = j + 1
+            # extract the actual string
             res.append(s[i : i + length])
-            i += length
-
+            # move pointer
+            i = i + length
         return res
