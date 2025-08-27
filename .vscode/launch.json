@@ -1,0 +1,24 @@
+{
+    // VS Code Debug Configuration for Python
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python Debugger: Current File",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",                 // Run the currently open file
+            "console": "integratedTerminal",       // Use VSCode's terminal (not debug console)
+            "justMyCode": true,                    // Skip stepping into library code (set false to debug libs)
+            "stopOnEntry": false,                  // Set true if you want debugger to stop at the first line
+            "cwd": "${workspaceFolder}",           // Ensures relative imports work correctly
+            "env": {                               // Environment variables for debugging
+                "PYTHONUNBUFFERED": "1",           // Flush stdout immediately
+                "ENVIRONMENT": "development"
+            },
+            "envFile": "${workspaceFolder}/.env",  // Load environment variables from .env if exists
+            "args": [],                            // Add CLI args for your script here
+            "subProcess": true,                    // Debug child processes if script spawns them
+            "showReturnValue": true                // Show return values in the debug console
+        }
+    ]
+}
