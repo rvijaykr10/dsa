@@ -5,10 +5,10 @@ class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
         res = []
         for i, _ in enumerate(nums):
+            temp_product = 1
             for j, _ in enumerate(nums):
-                temp_product = 1
                 if i != j:
-                    temp_product *= nums[i] * nums[j]
+                    temp_product = temp_product * nums[j]
             res.append(temp_product)
         return res
 
