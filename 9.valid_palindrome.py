@@ -6,4 +6,4 @@ class Solution:
         return False
 
 
-print(Solution().isPalindrome("Was it a car or a cat I saw?"))  # True
+# print(Solution().isPalindrome("Was it a car or a cat I saw?"))
